@@ -1,9 +1,4 @@
 aoc_erl_22
 =====
 
-An OTP library
-
-Build
------
-
-    $ rebar3 compile
+My solutions to Advent of Code 2022 puzzles in Erlang.
