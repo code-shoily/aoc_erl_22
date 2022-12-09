@@ -18,12 +18,9 @@ solve2(ParsedStream) ->
 
 solve_for(ParsedStream, BufferSize, Counter) ->
   {Buffer, _} = lists:split(BufferSize, ParsedStream),
-  case unique_members(Buffer) of
-    true ->
+  case sets:size(sets:from_list(Buffer)) of
+    BufferSize ->
       Counter + BufferSize;
-    false ->
+    _ ->
       solve_for(tl(ParsedStream), BufferSize, Counter + 1)
   end.
-
-unique_members(List) ->
-  length(List) == length(ordsets:from_list(List)).
