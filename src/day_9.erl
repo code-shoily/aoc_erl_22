@@ -1,6 +1,6 @@
 -module(day_9).
 
--export([solve/0, move/4]).
+-export([solve/0]).
 
 input() ->
   {ok, Data} = file:read_file("data/9.txt"),
@@ -58,13 +58,7 @@ move_tail({HX, HY}, {TX, TY}) when HY == TY, TX - HX == 2 ->
   {TX - 1, TY};
 move_tail({HX, HY}, {TX, TY}) ->
   case {HX - TX, HY - TY} of
-    {1, 1} ->
-      {TX, TY};
-    {-1, -1} ->
-      {TX, TY};
-    {1, -1} ->
-      {TX, TY};
-    {-1, 1} ->
+    {DX, DY} when abs(DX * DY) =:= 1 ->
       {TX, TY};
     {DX, DY} when DX > 0, DY > 0 ->
       {TX + 1, TY + 1};
