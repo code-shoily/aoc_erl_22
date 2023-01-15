@@ -1,3 +1,5 @@
+.vscode
+data/
 .rebar3
 _*
 .eunit
